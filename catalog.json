@@ -27,7 +27,19 @@
       "patch": {
         "face": {
           "style": "dark",
-          "meter": "fet"
+          "meter": "fet",
+          "subtitle": "FET Compressor",
+          "symbol": "bolt.fill",
+          "accent": "#F0983A",
+          "top": [
+            "input",
+            "ratio",
+            "output"
+          ],
+          "knobs": [
+            "attack",
+            "release"
+          ]
         },
         "params": [
           {
@@ -72,24 +84,24 @@
             "default": 4,
             "options": [
               {
-                "label": "4:1",
-                "value": 4
-              },
-              {
-                "label": "8:1",
-                "value": 8
-              },
-              {
-                "label": "12:1",
-                "value": 12
+                "label": "ALL",
+                "value": 100
               },
               {
                 "label": "20:1",
                 "value": 20
               },
               {
-                "label": "ALL",
-                "value": 100
+                "label": "12:1",
+                "value": 12
+              },
+              {
+                "label": "8:1",
+                "value": 8
+              },
+              {
+                "label": "4:1",
+                "value": 4
               }
             ]
           },
@@ -164,7 +176,11 @@
       "patch": {
         "face": {
           "style": "ivory",
-          "meter": "cell"
+          "meter": "cell",
+          "display": "vu",
+          "subtitle": "Optical Leveler",
+          "symbol": "scope",
+          "accent": "#A8382C"
         },
         "params": [
           {
@@ -278,7 +294,21 @@
       "patch": {
         "face": {
           "style": "dark",
-          "meter": "vca"
+          "meter": "vca",
+          "display": "vu",
+          "subtitle": "Stereo VCA Compressor",
+          "symbol": "diamond.lefthalf.filled",
+          "accent": "#F0A040",
+          "knobs": [
+            "thresh",
+            "ratio",
+            "attack",
+            "release"
+          ],
+          "strip": [
+            "auto",
+            "mix"
+          ]
         },
         "params": [
           {
@@ -338,17 +368,17 @@
           },
           {
             "id": "auto",
-            "name": "Rel",
+            "name": "Auto Release",
             "min": 0,
             "max": 1,
             "default": 0,
             "options": [
               {
-                "label": "SET",
+                "label": "OFF",
                 "value": 0
               },
               {
-                "label": "AUTO",
+                "label": "ON",
                 "value": 1
               }
             ]
@@ -425,7 +455,10 @@
       "patch": {
         "face": {
           "style": "dark",
-          "display": "saturation"
+          "display": "saturation",
+          "subtitle": "Analog Saturation",
+          "symbol": "flame.fill",
+          "accent": "#FF6A2A"
         },
         "params": [
           {
@@ -579,7 +612,17 @@
       "patch": {
         "face": {
           "style": "dark",
-          "meter": "ess"
+          "meter": "ess",
+          "display": "spectrum",
+          "subtitle": "De-Esser",
+          "symbol": "s.circle",
+          "accent": "#E8C9A0",
+          "knobs": [
+            "freq",
+            "range",
+            "release",
+            "thresh"
+          ]
         },
         "params": [
           {
@@ -705,7 +748,17 @@
       "patch": {
         "face": {
           "style": "dark",
-          "meter": "vca"
+          "meter": "vca",
+          "display": "meters",
+          "subtitle": "Punch Compressor",
+          "symbol": "waveform.path",
+          "accent": "#F4772C",
+          "knobs": [
+            "ratio",
+            "thresh",
+            "makeup"
+          ],
+          "hero": "thresh"
         },
         "params": [
           {
@@ -916,7 +969,11 @@
       },
       "patch": {
         "face": {
-          "style": "dark"
+          "style": "dark",
+          "display": "wave",
+          "subtitle": "Analog Chorus",
+          "symbol": "alternatingcurrent",
+          "accent": "#A884FF"
         },
         "params": [
           {
@@ -1043,7 +1100,16 @@
       },
       "patch": {
         "face": {
-          "style": "dark"
+          "style": "dark",
+          "display": "orbit",
+          "subtitle": "2–12 Stage Phaser",
+          "symbol": "atom",
+          "accent": "#B07CF0",
+          "top": [
+            "stages",
+            "display",
+            "mode"
+          ]
         },
         "params": [
           {
@@ -1109,6 +1175,27 @@
             ]
           },
           {
+            "id": "mode",
+            "name": "Mode",
+            "min": 0,
+            "max": 2,
+            "default": 0,
+            "options": [
+              {
+                "label": "CLASSIC",
+                "value": 0
+              },
+              {
+                "label": "DEEP",
+                "value": 1
+              },
+              {
+                "label": "WIDE",
+                "value": 2
+              }
+            ]
+          },
+          {
             "id": "center",
             "name": "Centre",
             "min": 100,
@@ -1144,10 +1231,10 @@
             "set": {
               "rate": "rate",
               "depth": "depth",
-              "feedback": "feedback",
-              "center": "center",
+              "feedback": "min(max(feedback * (1 + 0.5 * max(0, 1 - abs(mode - 1))), 0 - 0.95), 0.95)",
+              "center": "center * (1 - 0.45 * max(0, 1 - abs(mode - 1)))",
               "stages": "stages",
-              "width": "width",
+              "width": "min(width + 0.5 * max(0, mode - 1), 1)",
               "mix": "mix",
               "color": "color"
             }
@@ -1181,7 +1268,11 @@
       },
       "patch": {
         "face": {
-          "style": "dark"
+          "style": "dark",
+          "display": "lcd",
+          "subtitle": "Lo-Fi Sampler",
+          "symbol": "square.grid.3x3.fill",
+          "accent": "#E8C98A"
         },
         "params": [
           {
@@ -1333,7 +1424,10 @@
       "patch": {
         "face": {
           "style": "dark",
-          "display": "eq"
+          "display": "eq",
+          "subtitle": "10-Band Parametric EQ",
+          "symbol": "waveform",
+          "accent": "#D8DDE4"
         },
         "params": [
           {
@@ -2258,7 +2352,18 @@
       },
       "patch": {
         "face": {
-          "style": "dark"
+          "style": "dark",
+          "display": "reels",
+          "subtitle": "Magnetic Tape",
+          "symbol": "recordingtape",
+          "accent": "#D8A070",
+          "knobs": [
+            "drive",
+            "bias",
+            "wow",
+            "flutter",
+            "mix"
+          ]
         },
         "params": [
           {
@@ -2341,8 +2446,7 @@
             "min": -1,
             "max": 1,
             "default": 0.1,
-            "unit": "%",
-            "small": true
+            "unit": "%"
           },
           {
             "id": "age",
@@ -2407,7 +2511,18 @@
       },
       "patch": {
         "face": {
-          "style": "dark"
+          "style": "dark",
+          "display": "space",
+          "subtitle": "Plate Shimmer Reverb",
+          "symbol": "cloud",
+          "accent": "#9CC8FF",
+          "knobs": [
+            "decay",
+            "damping",
+            "mix"
+          ],
+          "menu": "engine",
+          "labels": "above"
         },
         "params": [
           {
