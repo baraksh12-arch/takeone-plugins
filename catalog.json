@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "plugins": [
+    {
+      "id": "caves.glue",
+      "name": "Caves Glue",
+      "shortName": "GLUE",
+      "bundle": "Caves",
+      "category": "comp",
+      "engine": "dynamics",
+      "summary": "Slow, low-ratio compression that holds a stem together without pumping.",
+      "tags": [
+        "bus",
+        "glue",
+        "gentle"
+      ],
+      "icon": {
+        "symbol": "rectangle.compress.vertical",
+        "colors": [
+          "#D9A441",
+          "#4A3208"
+        ]
+      },
+      "voicing": {
+        "comp": {
+          "thresholdDb": -18,
+          "ratio": 2,
+          "makeupDb": 3
+        }
+      }
+    },
+    {
+      "id": "caves.slap",
+      "name": "Caves Slap",
+      "shortName": "SLAP",
+      "bundle": "Caves",
+      "category": "delay",
+      "engine": "delay",
+      "summary": "One short rockabilly slap-back, 110 ms, no repeats.",
+      "tags": [
+        "slapback",
+        "short",
+        "vintage"
+      ],
+      "icon": {
+        "colors": [
+          "#E2574C",
+          "#4A120D"
+        ]
+      },
+      "voicing": {
+        "delay": {
+          "mix": 0.3,
+          "feedback": 0.05,
+          "sync": "ms",
+          "timeLMs": 110,
+          "timeRMs": 110
+        }
+      }
+    },
+    {
+      "id": "caves.heat",
+      "name": "Caves Heat",
+      "shortName": "HEAT",
+      "bundle": "Caves",
+      "category": "saturation",
+      "engine": "patch",
+      "summary": "Tube warmth. Drive it for harmonics, tame the top with Tone, blend with Mix.",
+      "tags": [
+        "tube",
+        "warmth",
+        "drive",
+        "saturation"
+      ],
+      "icon": {
+        "symbol": "flame.fill",
+        "colors": [
+          "#F28C28",
+          "#5A1E05"
+        ]
+      },
+      "patch": {
+        "params": [
+          {
+            "id": "drive",
+            "name": "Drive",
+            "min": 0,
+            "max": 24,
+            "default": 9,
+            "unit": "dB"
+          },
+          {
+            "id": "tone",
+            "name": "Tone",
+            "min": 1500,
+            "max": 18000,
+            "default": 9000,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.7,
+            "unit": "%"
+          },
+          {
+            "id": "out",
+            "name": "Output",
+            "min": -12,
+            "max": 12,
+            "default": 0,
+            "unit": "dB"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "tube",
+            "type": "shaper",
+            "mode": "tube",
+            "set": {
+              "drive": "drive",
+              "trim": "-drive * 0.55",
+              "bias": 0.12
+            }
+          },
+          {
+            "id": "top",
+            "type": "filter",
+            "mode": "lowpass",
+            "set": {
+              "freq": "tone",
+              "q": 0.6
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "top",
+            "set": {
+              "amount": "mix"
+            }
+          },
+          {
+            "id": "level",
+            "type": "gain",
+            "set": {
+              "db": "out"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "caves.wide",
+      "name": "Caves Wide",
+      "shortName": "WIDE",
+      "bundle": "Caves",
+      "category": "stereo",
+      "engine": "patch",
+      "summary": "Opens the stereo image above the bass and adds a touch of air.",
+      "tags": [
+        "stereo",
+        "width",
+        "air",
+        "wide"
+      ],
+      "icon": {
+        "symbol": "arrow.left.and.right",
+        "colors": [
+          "#4FB7A6",
+          "#0D332E"
+        ]
+      },
+      "patch": {
+        "params": [
+          {
+            "id": "width",
+            "name": "Width",
+            "min": 0,
+            "max": 2,
+            "default": 1.4,
+            "unit": "x"
+          },
+          {
+            "id": "air",
+            "name": "Air",
+            "min": 0,
+            "max": 8,
+            "default": 2,
+            "unit": "dB"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "image",
+            "type": "width",
+            "set": {
+              "width": "width"
+            }
+          },
+          {
+            "id": "air",
+            "type": "filter",
+            "mode": "highshelf",
+            "set": {
+              "freq": 9000,
+              "q": 0.7,
+              "gain": "air"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
