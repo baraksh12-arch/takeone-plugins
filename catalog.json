@@ -1308,6 +1308,1232 @@
       }
     },
     {
+      "id": "takeone.precision10",
+      "name": "Precision 10",
+      "shortName": "EQ 10",
+      "bundle": "Take One",
+      "category": "eq",
+      "engine": "patch",
+      "summary": "Ten-band parametric EQ. Drag a point to shape the sound; every band can be a bell, shelf, cut or notch.",
+      "tags": [
+        "eq",
+        "equalizer",
+        "parametric",
+        "ten band",
+        "surgical",
+        "q10"
+      ],
+      "icon": {
+        "symbol": "slider.vertical.3",
+        "colors": [
+          "#1D8FB8",
+          "#0A2E3D"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "display": "eq"
+        },
+        "params": [
+          {
+            "id": "f1",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 31,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g1",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q1",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 0.7,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t1",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 1,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on1",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f2",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 62,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g2",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q2",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t2",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on2",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f3",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 125,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g3",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q3",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t3",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on3",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f4",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 250,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g4",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q4",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t4",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on4",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f5",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 500,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g5",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q5",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t5",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on5",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f6",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 1000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g6",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q6",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t6",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on6",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f7",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 2000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g7",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q7",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t7",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on7",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f8",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 4000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g8",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q8",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t8",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on8",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f9",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 8000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g9",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q9",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 1,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t9",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on9",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "f10",
+            "name": "Freq",
+            "min": 20,
+            "max": 20000,
+            "default": 16000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "g10",
+            "name": "Gain",
+            "min": -24,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "q10",
+            "name": "Q",
+            "min": 0.1,
+            "max": 40,
+            "default": 0.7,
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "t10",
+            "name": "Type",
+            "min": 0,
+            "max": 5,
+            "default": 2,
+            "options": [
+              {
+                "label": "BELL",
+                "value": 0
+              },
+              {
+                "label": "LO SH",
+                "value": 1
+              },
+              {
+                "label": "HI SH",
+                "value": 2
+              },
+              {
+                "label": "LO CUT",
+                "value": 3
+              },
+              {
+                "label": "HI CUT",
+                "value": 4
+              },
+              {
+                "label": "NOTCH",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "on10",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "OFF",
+                "value": 0
+              },
+              {
+                "label": "ON",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "nodes": [
+          {
+            "id": "b1",
+            "type": "peq",
+            "set": {
+              "freq": "f1",
+              "gain": "g1",
+              "q": "q1",
+              "curve": "t1",
+              "on": "on1"
+            }
+          },
+          {
+            "id": "b2",
+            "type": "peq",
+            "set": {
+              "freq": "f2",
+              "gain": "g2",
+              "q": "q2",
+              "curve": "t2",
+              "on": "on2"
+            }
+          },
+          {
+            "id": "b3",
+            "type": "peq",
+            "set": {
+              "freq": "f3",
+              "gain": "g3",
+              "q": "q3",
+              "curve": "t3",
+              "on": "on3"
+            }
+          },
+          {
+            "id": "b4",
+            "type": "peq",
+            "set": {
+              "freq": "f4",
+              "gain": "g4",
+              "q": "q4",
+              "curve": "t4",
+              "on": "on4"
+            }
+          },
+          {
+            "id": "b5",
+            "type": "peq",
+            "set": {
+              "freq": "f5",
+              "gain": "g5",
+              "q": "q5",
+              "curve": "t5",
+              "on": "on5"
+            }
+          },
+          {
+            "id": "b6",
+            "type": "peq",
+            "set": {
+              "freq": "f6",
+              "gain": "g6",
+              "q": "q6",
+              "curve": "t6",
+              "on": "on6"
+            }
+          },
+          {
+            "id": "b7",
+            "type": "peq",
+            "set": {
+              "freq": "f7",
+              "gain": "g7",
+              "q": "q7",
+              "curve": "t7",
+              "on": "on7"
+            }
+          },
+          {
+            "id": "b8",
+            "type": "peq",
+            "set": {
+              "freq": "f8",
+              "gain": "g8",
+              "q": "q8",
+              "curve": "t8",
+              "on": "on8"
+            }
+          },
+          {
+            "id": "b9",
+            "type": "peq",
+            "set": {
+              "freq": "f9",
+              "gain": "g9",
+              "q": "q9",
+              "curve": "t9",
+              "on": "on9"
+            }
+          },
+          {
+            "id": "b10",
+            "type": "peq",
+            "set": {
+              "freq": "f10",
+              "gain": "g10",
+              "q": "q10",
+              "curve": "t10",
+              "on": "on10"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.reel",
+      "name": "Reel",
+      "shortName": "REEL",
+      "bundle": "Take One",
+      "category": "saturation",
+      "engine": "patch",
+      "summary": "Tape machine. Drive it for warmth and gentle compression of the top end; add wow, flutter and hiss to taste.",
+      "tags": [
+        "tape",
+        "reel",
+        "analog",
+        "warmth",
+        "wow",
+        "flutter",
+        "saturation",
+        "cassette"
+      ],
+      "icon": {
+        "symbol": "recordingtape",
+        "colors": [
+          "#8C6A45",
+          "#241708"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark"
+        },
+        "params": [
+          {
+            "id": "drive",
+            "name": "Drive",
+            "min": -6,
+            "max": 24,
+            "default": 3,
+            "unit": "dB"
+          },
+          {
+            "id": "wow",
+            "name": "Wow",
+            "min": 0,
+            "max": 1,
+            "default": 0.12,
+            "unit": "%"
+          },
+          {
+            "id": "flutter",
+            "name": "Flutter",
+            "min": 0,
+            "max": 1,
+            "default": 0.25,
+            "unit": "%"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.8,
+            "unit": "%"
+          },
+          {
+            "id": "machine",
+            "name": "Deck",
+            "min": 0,
+            "max": 2,
+            "default": 1,
+            "options": [
+              {
+                "label": "STUDIO",
+                "value": 0
+              },
+              {
+                "label": "VINTAGE",
+                "value": 1
+              },
+              {
+                "label": "CASSETTE",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "speed",
+            "name": "IPS",
+            "min": 0,
+            "max": 2,
+            "default": 1,
+            "options": [
+              {
+                "label": "7.5",
+                "value": 0
+              },
+              {
+                "label": "15",
+                "value": 1
+              },
+              {
+                "label": "30",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "bias",
+            "name": "Bias",
+            "min": -1,
+            "max": 1,
+            "default": 0.1,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "age",
+            "name": "Age",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "hiss",
+            "name": "Hiss",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "tape",
+            "type": "tape",
+            "set": {
+              "speed": "speed",
+              "drive": "drive",
+              "bias": "bias",
+              "age": "age",
+              "wow": "wow",
+              "flutter": "flutter",
+              "hiss": "hiss",
+              "machine": "machine",
+              "mix": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.skyspace",
+      "name": "Skyspace",
+      "shortName": "SKY",
+      "bundle": "Take One",
+      "category": "reverb",
+      "engine": "patch",
+      "summary": "Reverb with three engines: a dense studio plate, a wide open sky, and a shimmer that blooms an octave up.",
+      "tags": [
+        "reverb",
+        "plate",
+        "shimmer",
+        "ambience",
+        "space",
+        "hall"
+      ],
+      "icon": {
+        "symbol": "cloud.fill",
+        "colors": [
+          "#4C7FD0",
+          "#0D1B3A"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark"
+        },
+        "params": [
+          {
+            "id": "decay",
+            "name": "Decay",
+            "min": 0.3,
+            "max": 20,
+            "default": 2.4,
+            "unit": "s",
+            "curve": "log"
+          },
+          {
+            "id": "predelay",
+            "name": "Pre",
+            "min": 0,
+            "max": 200,
+            "default": 18,
+            "unit": "ms"
+          },
+          {
+            "id": "damping",
+            "name": "Damp",
+            "min": 1000,
+            "max": 16000,
+            "default": 7000,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.25,
+            "unit": "%"
+          },
+          {
+            "id": "engine",
+            "name": "Type",
+            "min": 0,
+            "max": 2,
+            "default": 0,
+            "options": [
+              {
+                "label": "PLATE",
+                "value": 0
+              },
+              {
+                "label": "SKY",
+                "value": 1
+              },
+              {
+                "label": "SHIMMER",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "interval",
+            "name": "Pitch",
+            "min": 0,
+            "max": 2,
+            "default": 2,
+            "options": [
+              {
+                "label": "OCT",
+                "value": 0
+              },
+              {
+                "label": "5TH",
+                "value": 1
+              },
+              {
+                "label": "OCT+5",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "width",
+            "name": "Width",
+            "min": 0,
+            "max": 1.5,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "mod",
+            "name": "Mod",
+            "min": 0,
+            "max": 1,
+            "default": 0.3,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "duck",
+            "name": "Duck",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "verb",
+            "type": "reverb",
+            "set": {
+              "decay": "decay",
+              "predelay": "predelay",
+              "damping": "damping",
+              "width": "width",
+              "modulation": "mod",
+              "interval": "interval",
+              "ducking": "duck",
+              "engine": "engine",
+              "mix": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "caves.glue",
       "name": "Caves Glue",
       "shortName": "GLUE",
