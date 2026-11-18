@@ -892,6 +892,422 @@
       }
     },
     {
+      "id": "takeone.silkchorus",
+      "name": "Silk Chorus",
+      "shortName": "CHORUS",
+      "bundle": "Take One",
+      "category": "modulation",
+      "engine": "patch",
+      "summary": "Chorus and stereo doubler. Vintage for a classic swirl, Double to widen a voice with no sweep, Ensemble for lush strings-like thickness.",
+      "tags": [
+        "chorus",
+        "doubler",
+        "widen",
+        "ensemble",
+        "modulation",
+        "stereo"
+      ],
+      "icon": {
+        "symbol": "water.waves",
+        "colors": [
+          "#6C4FC4",
+          "#170F33"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark"
+        },
+        "params": [
+          {
+            "id": "depth",
+            "name": "Depth",
+            "min": 0,
+            "max": 1,
+            "default": 0.35,
+            "unit": "%"
+          },
+          {
+            "id": "rate",
+            "name": "Rate",
+            "min": 0.05,
+            "max": 8,
+            "default": 0.28,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%"
+          },
+          {
+            "id": "width",
+            "name": "Width",
+            "min": 0,
+            "max": 1.5,
+            "default": 1.2,
+            "unit": "%"
+          },
+          {
+            "id": "mode",
+            "name": "Mode",
+            "min": 0,
+            "max": 2,
+            "default": 0,
+            "options": [
+              {
+                "label": "VINTAGE",
+                "value": 0
+              },
+              {
+                "label": "DOUBLE",
+                "value": 1
+              },
+              {
+                "label": "ENSEMBLE",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "detune",
+            "name": "Detune",
+            "min": 0,
+            "max": 30,
+            "default": 8,
+            "unit": "ct",
+            "small": true
+          },
+          {
+            "id": "delay",
+            "name": "Delay",
+            "min": 3,
+            "max": 40,
+            "default": 12,
+            "unit": "ms",
+            "small": true
+          },
+          {
+            "id": "feedback",
+            "name": "Fdbk",
+            "min": -0.7,
+            "max": 0.7,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "chorus",
+            "type": "chorus",
+            "set": {
+              "rate": "rate",
+              "depth": "depth",
+              "width": "width",
+              "detune": "detune",
+              "delay": "delay",
+              "feedback": "feedback",
+              "mix": "mix",
+              "mode": "mode"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.orbitphaser",
+      "name": "Orbit Phaser",
+      "shortName": "PHASER",
+      "bundle": "Take One",
+      "category": "modulation",
+      "engine": "patch",
+      "summary": "Analog-style phaser with 2 to 12 stages. Gentle movement at low depth, deep swirling notches with feedback up.",
+      "tags": [
+        "phaser",
+        "phase",
+        "modulation",
+        "sweep",
+        "psychedelic"
+      ],
+      "icon": {
+        "symbol": "atom",
+        "colors": [
+          "#8E55C9",
+          "#1C0F2E"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark"
+        },
+        "params": [
+          {
+            "id": "rate",
+            "name": "Rate",
+            "min": 0.02,
+            "max": 10,
+            "default": 0.32,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "depth",
+            "name": "Depth",
+            "min": 0,
+            "max": 1,
+            "default": 0.75,
+            "unit": "%"
+          },
+          {
+            "id": "feedback",
+            "name": "Feedback",
+            "min": -0.95,
+            "max": 0.95,
+            "default": 0.45,
+            "unit": "%"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%"
+          },
+          {
+            "id": "stages",
+            "name": "Stages",
+            "min": 2,
+            "max": 12,
+            "default": 8,
+            "options": [
+              {
+                "label": "2",
+                "value": 2
+              },
+              {
+                "label": "4",
+                "value": 4
+              },
+              {
+                "label": "6",
+                "value": 6
+              },
+              {
+                "label": "8",
+                "value": 8
+              },
+              {
+                "label": "12",
+                "value": 12
+              }
+            ]
+          },
+          {
+            "id": "center",
+            "name": "Centre",
+            "min": 100,
+            "max": 4000,
+            "default": 800,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "width",
+            "name": "Width",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "color",
+            "name": "Colour",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "phaser",
+            "type": "phaser",
+            "set": {
+              "rate": "rate",
+              "depth": "depth",
+              "feedback": "feedback",
+              "center": "center",
+              "stages": "stages",
+              "width": "width",
+              "mix": "mix",
+              "color": "color"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.dustlab",
+      "name": "Dust Lab",
+      "shortName": "DUST",
+      "bundle": "Take One",
+      "category": "character",
+      "engine": "patch",
+      "summary": "Lo-fi converter. Fewer bits and a slower clock for sampler grit, or cassette and broken-radio colour.",
+      "tags": [
+        "lofi",
+        "lo-fi",
+        "bitcrusher",
+        "sampler",
+        "cassette",
+        "radio",
+        "vintage"
+      ],
+      "icon": {
+        "symbol": "square.grid.3x3.fill",
+        "colors": [
+          "#C98A2B",
+          "#2B1B06"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark"
+        },
+        "params": [
+          {
+            "id": "bits",
+            "name": "Bits",
+            "min": 4,
+            "max": 16,
+            "default": 12,
+            "unit": "bit"
+          },
+          {
+            "id": "rate",
+            "name": "Rate",
+            "min": 2000,
+            "max": 44100,
+            "default": 22050,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "jitter",
+            "name": "Jitter",
+            "min": 0,
+            "max": 1,
+            "default": 0.18,
+            "unit": "%"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.65,
+            "unit": "%"
+          },
+          {
+            "id": "mode",
+            "name": "Mode",
+            "min": 0,
+            "max": 3,
+            "default": 0,
+            "options": [
+              {
+                "label": "SAMPLER",
+                "value": 0
+              },
+              {
+                "label": "8-BIT",
+                "value": 1
+              },
+              {
+                "label": "TAPE",
+                "value": 2
+              },
+              {
+                "label": "RADIO",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "id": "drive",
+            "name": "Drive",
+            "min": 0,
+            "max": 24,
+            "default": 0,
+            "unit": "dB",
+            "small": true
+          },
+          {
+            "id": "filter",
+            "name": "Filter",
+            "min": 500,
+            "max": 20000,
+            "default": 20000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "noise",
+            "name": "Noise",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "flutter",
+            "name": "Flutter",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "dust",
+            "type": "lofi",
+            "set": {
+              "bits": "bits",
+              "rate": "rate",
+              "drive": "drive",
+              "filter": "filter",
+              "noise": "noise",
+              "flutter": "flutter",
+              "jitter": "jitter",
+              "mode": "mode"
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "dust",
+            "set": {
+              "amount": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "caves.glue",
       "name": "Caves Glue",
       "shortName": "GLUE",
