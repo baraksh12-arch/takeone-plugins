@@ -400,6 +400,498 @@
       }
     },
     {
+      "id": "takeone.ember",
+      "name": "Ember",
+      "shortName": "EMBER",
+      "bundle": "Take One",
+      "category": "saturation",
+      "engine": "patch",
+      "summary": "Analog saturation in five flavours, from console warmth to diode bite. Drive adds harmonics, Mix blends them in.",
+      "tags": [
+        "saturation",
+        "distortion",
+        "tube",
+        "warmth",
+        "harmonics",
+        "drive"
+      ],
+      "icon": {
+        "symbol": "flame.fill",
+        "colors": [
+          "#D9531E",
+          "#3A1206"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "display": "saturation"
+        },
+        "params": [
+          {
+            "id": "drive",
+            "name": "Drive",
+            "min": 0,
+            "max": 36,
+            "default": 9,
+            "unit": "dB"
+          },
+          {
+            "id": "tone",
+            "name": "Tone",
+            "min": -1,
+            "max": 1,
+            "default": 0,
+            "unit": "%"
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 0.75,
+            "unit": "%"
+          },
+          {
+            "id": "output",
+            "name": "Output",
+            "min": -18,
+            "max": 12,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "model",
+            "name": "Model",
+            "min": 0,
+            "max": 4,
+            "default": 0,
+            "options": [
+              {
+                "label": "TUBE",
+                "value": 0
+              },
+              {
+                "label": "IRON",
+                "value": 1
+              },
+              {
+                "label": "SOLID",
+                "value": 2
+              },
+              {
+                "label": "DIODE",
+                "value": 3
+              },
+              {
+                "label": "DESK",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "id": "bias",
+            "name": "Bias",
+            "min": -1,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "dyn",
+            "name": "Dyn",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "lowcut",
+            "name": "Lo Cut",
+            "min": 20,
+            "max": 500,
+            "default": 20,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          },
+          {
+            "id": "hicut",
+            "name": "Hi Cut",
+            "min": 2000,
+            "max": 20000,
+            "default": 20000,
+            "unit": "Hz",
+            "curve": "log",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "sat",
+            "type": "ember",
+            "set": {
+              "drive": "drive",
+              "bias": "bias",
+              "tone": "tone",
+              "dynamics": "dyn",
+              "lowcut": "lowcut",
+              "highcut": "hicut",
+              "mix": "mix",
+              "model": "model"
+            }
+          },
+          {
+            "id": "level",
+            "type": "gain",
+            "set": {
+              "db": "output"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.softs",
+      "name": "Soft S",
+      "shortName": "SOFT S",
+      "bundle": "Take One",
+      "category": "de-esser",
+      "engine": "patch",
+      "summary": "De-esser. Turns down harsh S and T sounds when they flare, and leaves the rest of the voice alone.",
+      "tags": [
+        "de-esser",
+        "deesser",
+        "sibilance",
+        "vocal",
+        "harsh",
+        "s"
+      ],
+      "icon": {
+        "symbol": "waveform.path.ecg",
+        "colors": [
+          "#7C5FD0",
+          "#1D1538"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "meter": "ess"
+        },
+        "params": [
+          {
+            "id": "thresh",
+            "name": "Thresh",
+            "min": -60,
+            "max": 0,
+            "default": -30,
+            "unit": "dB"
+          },
+          {
+            "id": "range",
+            "name": "Range",
+            "min": 0,
+            "max": 24,
+            "default": 8,
+            "unit": "dB"
+          },
+          {
+            "id": "freq",
+            "name": "Freq",
+            "min": 2000,
+            "max": 12000,
+            "default": 6500,
+            "unit": "Hz",
+            "curve": "log"
+          },
+          {
+            "id": "release",
+            "name": "Release",
+            "min": 10,
+            "max": 300,
+            "default": 60,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "mode",
+            "name": "Band",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "WIDE",
+                "value": 0
+              },
+              {
+                "label": "SPLIT",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "listen",
+            "name": "Hear",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "OUT",
+                "value": 0
+              },
+              {
+                "label": "DELTA",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "focus",
+            "name": "Focus",
+            "min": 0,
+            "max": 1,
+            "default": 0.6,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "ess",
+            "type": "deesser",
+            "set": {
+              "threshold": "thresh",
+              "range": "range",
+              "freq": "freq",
+              "split": "mode",
+              "release": "release",
+              "delta": "listen",
+              "focus": "focus"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.punch250",
+      "name": "Punch 250",
+      "shortName": "PUNCH",
+      "bundle": "Take One",
+      "category": "comp",
+      "engine": "patch",
+      "summary": "Punchy VCA compressor with a choice of knee, detector and thrust, so the low end keeps its weight.",
+      "tags": [
+        "vca",
+        "api",
+        "2500",
+        "compressor",
+        "punch",
+        "drums",
+        "bass",
+        "thrust"
+      ],
+      "icon": {
+        "symbol": "bolt.horizontal.fill",
+        "colors": [
+          "#B8791F",
+          "#2A1A05"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "meter": "vca"
+        },
+        "params": [
+          {
+            "id": "thresh",
+            "name": "Thresh",
+            "min": -40,
+            "max": 0,
+            "default": -18,
+            "unit": "dB"
+          },
+          {
+            "id": "attack",
+            "name": "Attack",
+            "min": 0.03,
+            "max": 30,
+            "default": 3,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "release",
+            "name": "Release",
+            "min": 50,
+            "max": 3000,
+            "default": 200,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "makeup",
+            "name": "Makeup",
+            "min": 0,
+            "max": 18,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "ratio",
+            "name": "Ratio",
+            "min": 1.5,
+            "max": 100,
+            "default": 4,
+            "options": [
+              {
+                "label": "1.5:1",
+                "value": 1.5
+              },
+              {
+                "label": "2:1",
+                "value": 2
+              },
+              {
+                "label": "3:1",
+                "value": 3
+              },
+              {
+                "label": "4:1",
+                "value": 4
+              },
+              {
+                "label": "6:1",
+                "value": 6
+              },
+              {
+                "label": "10:1",
+                "value": 10
+              },
+              {
+                "label": "INF",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "id": "knee",
+            "name": "Knee",
+            "min": 0,
+            "max": 14,
+            "default": 6,
+            "options": [
+              {
+                "label": "HARD",
+                "value": 0
+              },
+              {
+                "label": "MED",
+                "value": 6
+              },
+              {
+                "label": "SOFT",
+                "value": 14
+              }
+            ]
+          },
+          {
+            "id": "type",
+            "name": "Type",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "NEW",
+                "value": 0
+              },
+              {
+                "label": "OLD",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "thrust",
+            "name": "Thrust",
+            "min": 0,
+            "max": 2,
+            "default": 0,
+            "options": [
+              {
+                "label": "NORM",
+                "value": 0
+              },
+              {
+                "label": "MED",
+                "value": 1
+              },
+              {
+                "label": "LOUD",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "link",
+            "name": "Link",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "vca",
+            "type": "punch",
+            "set": {
+              "threshold": "thresh",
+              "ratio": "ratio",
+              "attack": "attack",
+              "release": "release",
+              "knee": "knee",
+              "feedback": "type",
+              "thrust": "thrust",
+              "link": "link"
+            }
+          },
+          {
+            "id": "level",
+            "type": "gain",
+            "set": {
+              "db": "makeup"
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "level",
+            "set": {
+              "amount": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "caves.glue",
       "name": "Caves Glue",
       "shortName": "GLUE",
