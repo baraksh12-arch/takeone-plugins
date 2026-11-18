@@ -2,6 +2,404 @@
   "schema": 1,
   "plugins": [
     {
+      "id": "takeone.lightning76",
+      "name": "Lightning 76",
+      "shortName": "L76",
+      "bundle": "Take One",
+      "category": "comp",
+      "engine": "patch",
+      "summary": "Fast FET compressor. Push Input into it for grab and attitude, then set the level with Output.",
+      "tags": [
+        "fet",
+        "1176",
+        "compressor",
+        "fast",
+        "vocal",
+        "limiter"
+      ],
+      "icon": {
+        "symbol": "bolt.fill",
+        "colors": [
+          "#4A4F5C",
+          "#14161B"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "meter": "fet"
+        },
+        "params": [
+          {
+            "id": "input",
+            "name": "Input",
+            "min": -12,
+            "max": 36,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "attack",
+            "name": "Attack",
+            "min": 20,
+            "max": 800,
+            "default": 200,
+            "unit": "µs",
+            "curve": "log"
+          },
+          {
+            "id": "release",
+            "name": "Release",
+            "min": 50,
+            "max": 1100,
+            "default": 300,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "output",
+            "name": "Output",
+            "min": -36,
+            "max": 12,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "ratio",
+            "name": "Ratio",
+            "min": 4,
+            "max": 100,
+            "default": 4,
+            "options": [
+              {
+                "label": "4:1",
+                "value": 4
+              },
+              {
+                "label": "8:1",
+                "value": 8
+              },
+              {
+                "label": "12:1",
+                "value": 12
+              },
+              {
+                "label": "20:1",
+                "value": 20
+              },
+              {
+                "label": "ALL",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "id": "drive",
+            "name": "Drive",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "fet",
+            "type": "fet",
+            "set": {
+              "input": "input",
+              "output": "output",
+              "attack": "attack",
+              "release": "release",
+              "ratio": "ratio",
+              "color": "drive"
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "fet",
+            "set": {
+              "amount": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.velvet2",
+      "name": "Velvet 2",
+      "shortName": "VELVET",
+      "bundle": "Take One",
+      "category": "comp",
+      "engine": "patch",
+      "summary": "Optical leveller. Smooth, slow gain riding that holds a vocal steady without sounding squeezed.",
+      "tags": [
+        "opto",
+        "la-2a",
+        "leveller",
+        "compressor",
+        "vocal",
+        "smooth",
+        "tube"
+      ],
+      "icon": {
+        "symbol": "dial.medium.fill",
+        "colors": [
+          "#E9DFC4",
+          "#B9A47A"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "ivory",
+          "meter": "cell"
+        },
+        "params": [
+          {
+            "id": "compress",
+            "name": "Compress",
+            "min": 0,
+            "max": 1,
+            "default": 0.35,
+            "unit": "%"
+          },
+          {
+            "id": "recovery",
+            "name": "Recovery",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%"
+          },
+          {
+            "id": "makeup",
+            "name": "Makeup",
+            "min": -12,
+            "max": 12,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "mode",
+            "name": "Mode",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "COMPRESS",
+                "value": 0
+              },
+              {
+                "label": "LIMIT",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "character",
+            "name": "Tube",
+            "min": 0,
+            "max": 1,
+            "default": 0.5,
+            "unit": "%",
+            "small": true
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "cell",
+            "type": "opto",
+            "set": {
+              "compress": "compress",
+              "gain": "makeup",
+              "limit": "mode",
+              "recovery": "recovery",
+              "character": "character"
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "cell",
+            "set": {
+              "amount": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeone.consoleglue",
+      "name": "Console Glue",
+      "shortName": "GLUE",
+      "bundle": "Take One",
+      "category": "comp",
+      "engine": "patch",
+      "summary": "Stereo bus compressor. A few dB of it ties the parts of a mix together and adds punch.",
+      "tags": [
+        "bus",
+        "vca",
+        "ssl",
+        "glue",
+        "compressor",
+        "mix",
+        "punch"
+      ],
+      "icon": {
+        "symbol": "square.stack.3d.down.forward.fill",
+        "colors": [
+          "#3B3F47",
+          "#101114"
+        ]
+      },
+      "patch": {
+        "face": {
+          "style": "dark",
+          "meter": "vca"
+        },
+        "params": [
+          {
+            "id": "thresh",
+            "name": "Thresh",
+            "min": -40,
+            "max": 0,
+            "default": -18,
+            "unit": "dB"
+          },
+          {
+            "id": "attack",
+            "name": "Attack",
+            "min": 0.1,
+            "max": 30,
+            "default": 10,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "release",
+            "name": "Release",
+            "min": 100,
+            "max": 1200,
+            "default": 300,
+            "unit": "ms",
+            "curve": "log"
+          },
+          {
+            "id": "makeup",
+            "name": "Makeup",
+            "min": 0,
+            "max": 18,
+            "default": 0,
+            "unit": "dB"
+          },
+          {
+            "id": "ratio",
+            "name": "Ratio",
+            "min": 2,
+            "max": 10,
+            "default": 4,
+            "options": [
+              {
+                "label": "2:1",
+                "value": 2
+              },
+              {
+                "label": "4:1",
+                "value": 4
+              },
+              {
+                "label": "10:1",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "id": "auto",
+            "name": "Rel",
+            "min": 0,
+            "max": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "SET",
+                "value": 0
+              },
+              {
+                "label": "AUTO",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "schpf",
+            "name": "SC HPF",
+            "min": 0,
+            "max": 300,
+            "default": 0,
+            "unit": "Hz",
+            "small": true
+          },
+          {
+            "id": "mix",
+            "name": "Mix",
+            "min": 0,
+            "max": 1,
+            "default": 1,
+            "unit": "%",
+            "small": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "vca",
+            "type": "vca",
+            "set": {
+              "threshold": "thresh",
+              "ratio": "ratio",
+              "attack": "attack",
+              "release": "release",
+              "makeup": "makeup",
+              "schpf": "schpf",
+              "auto": "auto",
+              "knee": "10 - ratio * 0.6"
+            }
+          },
+          {
+            "id": "blend",
+            "type": "mix",
+            "input": "in",
+            "input2": "vca",
+            "set": {
+              "amount": "mix"
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "caves.glue",
       "name": "Caves Glue",
       "shortName": "GLUE",
