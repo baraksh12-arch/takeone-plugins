@@ -14,7 +14,7 @@ An entry that is malformed is skipped by the app; the rest of the file still loa
 
 ## What an entry looks like
 
-A plugin is either a starting sound for one of the app's four built-in panels (`engine`: `eq`, `dynamics`, `reverb`, `delay`), or a patch (`engine`: `patch`) with its own knobs and a signal chain made of the app's blocks: `gain`, `filter`, `shaper`, `delay`, `comp`, `mix`, `width`, `tremolo`.
+A plugin is either a starting sound for one of the app's four built-in panels (`engine`: `eq`, `dynamics`, `reverb`, `delay`), or a patch (`engine`: `patch`) with its own knobs and a signal chain made of the app's blocks: `gain`, `filter`, `shaper`, `delay`, `comp`, `mix`, `width`, `tremolo`. Pure Voice Pro uses `cleanvoice`, a neural engine built into the app; older versions list it as needing the latest Take One.
 
 The full format, with every block's settings, is in the app repository under `Docs/PluginLibrary/README.md`.
 

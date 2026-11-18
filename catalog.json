@@ -2654,135 +2654,25 @@
       "shortName": "PURE",
       "bundle": "Take One",
       "category": "restoration",
-      "engine": "patch",
-      "summary": "Voice cleaner. Turns down steady noise — hiss, hum, air conditioning — in six bands while the voice passes untouched.",
+      "engine": "cleanvoice",
+      "summary": "Neural voice cleaner. Separates the voice from room and noise, then lets you choose how much of each to keep, band by band.",
       "tags": [
         "denoise",
         "noise",
         "clean",
         "voice",
         "restoration",
-        "hiss",
-        "noise reduction"
+        "neural",
+        "ai",
+        "dereverb",
+        "ambience",
+        "separation"
       ],
       "icon": {
         "symbol": "waveform.badge.minus",
         "colors": [
           "#8A5CF0",
           "#1A0F38"
-        ]
-      },
-      "patch": {
-        "face": {
-          "style": "dark",
-          "meter": "clean",
-          "display": "clean",
-          "subtitle": "Voice Cleaning",
-          "symbol": "waveform",
-          "accent": "#B48CFF",
-          "knobs": [],
-          "strip": [
-            "mode",
-            "reduction"
-          ],
-          "slider": "reduction"
-        },
-        "params": [
-          {
-            "id": "mode",
-            "name": "Mode",
-            "min": 0,
-            "max": 1,
-            "default": 0,
-            "options": [
-              {
-                "label": "VOICE",
-                "value": 0
-              },
-              {
-                "label": "AMBIENCE",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "reduction",
-            "name": "Reduction",
-            "min": -36,
-            "max": 0,
-            "default": -18,
-            "unit": "dB"
-          },
-          {
-            "id": "sens",
-            "name": "Sens",
-            "min": 3,
-            "max": 30,
-            "default": 12,
-            "unit": "dB",
-            "small": true
-          },
-          {
-            "id": "release",
-            "name": "Release",
-            "min": 20,
-            "max": 2000,
-            "default": 150,
-            "unit": "ms",
-            "curve": "log",
-            "small": true
-          },
-          {
-            "id": "low",
-            "name": "Low",
-            "min": 60,
-            "max": 1000,
-            "default": 150,
-            "unit": "Hz",
-            "curve": "log",
-            "small": true
-          },
-          {
-            "id": "high",
-            "name": "High",
-            "min": 2000,
-            "max": 16000,
-            "default": 10000,
-            "unit": "Hz",
-            "curve": "log",
-            "small": true
-          },
-          {
-            "id": "hear",
-            "name": "Hear",
-            "min": 0,
-            "max": 1,
-            "default": 0,
-            "options": [
-              {
-                "label": "OUT",
-                "value": 0
-              },
-              {
-                "label": "REMOVED",
-                "value": 1
-              }
-            ]
-          }
-        ],
-        "nodes": [
-          {
-            "id": "clean",
-            "type": "clean",
-            "set": {
-              "reduction": "(0 - reduction) * (1 - 0.4 * mode)",
-              "sensitivity": "sens * (1 - 0.35 * mode)",
-              "release": "release",
-              "low": "low",
-              "high": "high",
-              "delta": "hear"
-            }
-          }
         ]
       }
     },
