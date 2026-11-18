@@ -3032,7 +3032,8 @@
             "treble",
             "presence",
             "master"
-          ]
+          ],
+          "knobPlate": "cab"
         },
         "params": [
           {
